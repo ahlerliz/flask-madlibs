@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-from flask.templating import render_template_string
 from flask_debugtoolbar import DebugToolbarExtension
 
 from stories import silly_story
