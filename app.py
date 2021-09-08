@@ -17,4 +17,14 @@ prompts = silly_story.prompts
 
 @app.get("/questions")
 def get_questions():
+    """Dynamically populates the questions.html with the prompts from a story instance """
     return render_template("questions.html", prompts=prompts)
+
+
+@app.get("/story")
+def make_story():
+    """Retrieves user inputed prompt answers from questions.html form and generates a story with the answers"""
+    answers = request.args
+    story = silly_story.generate(answers)
+    return render_template("story.html", story = story)
+    #Question: why would you use render_template_string
